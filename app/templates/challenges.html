@@ -3,20 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ competition_title }} Challenges</title>
+  <title>Challenges | CTF.PIR4CY.COM</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='challenges.css') }}">
+  <script src="{{ url_for('static', filename='challenges.js') }}" defer></script>
 </head>
 <body>
-  <main class="page-shell">
-    <a class="back-link" href="/">← CTF home</a>
-    <section class="competition-modal" aria-labelledby="competition-title">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="/">CTF<span>.</span>PIR4CY</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a class="active" href="{{ url_for('challenges') }}">Challenges</a>
+      </nav>
+    </header>
+
+    <main class="challenges-page">
+      <p class="eyebrow">CHALLENGE ARCHIVE</p>
+      <h1>Find your next clue.</h1>
+      <p class="page-intro">Pick a competition to browse its challenges, download files, and submit flags.</p>
+
+      <button class="competition-launcher" type="button" data-dialog-open="competition-dialog">
+        <span class="launcher-mark" aria-hidden="true">I</span>
+        <span class="launcher-copy">
+          <span class="launcher-label">FEATURED COMPETITION</span>
+          <span class="launcher-title">{{ competition_title }}</span>
+          <span class="launcher-description">Open the challenge board and start exploring.</span>
+        </span>
+        <span class="launcher-meta">{{ challenges|length }} challenges</span>
+        <span class="launcher-arrow" aria-hidden="true">↗</span>
+      </button>
+    </main>
+  </div>
+
+  <dialog
+    id="competition-dialog"
+    class="competition-dialog"
+    aria-labelledby="competition-title"
+    data-reopen="{{ 'true' if modal_open else 'false' }}"
+  >
+    <section class="competition-modal">
       <header class="modal-header">
         <div>
           <p class="eyebrow">CHALLENGE BOARD</p>
-          <h1 id="competition-title">{{ competition_title }}</h1>
+          <h2 id="competition-title">{{ competition_title }}</h2>
           <p class="intro">Choose a challenge, inspect the provided brief, and submit its flag.</p>
         </div>
-        <span class="challenge-count">{{ challenges|length }} challenges</span>
+        <div class="modal-header-actions">
+          <span class="challenge-count">{{ challenges|length }} challenges</span>
+          <button class="modal-close" type="button" data-dialog-close aria-label="Close challenge board">×</button>
+        </div>
       </header>
 
       <div class="challenge-grid">
@@ -24,7 +59,7 @@
         <article class="challenge-card">
           <div class="card-heading">
             <span class="challenge-number">{{ "%02d"|format(loop.index) }}</span>
-            <h2>{{ challenge.title }}</h2>
+            <h3>{{ challenge.title }}</h3>
           </div>
           <div class="readme">{{ challenge.readme }}</div>
           <a class="download-link" href="{{ url_for('download_challenge', challenge_id=challenge.id) }}">
@@ -55,6 +90,6 @@
         {% endfor %}
       </div>
     </section>
-  </main>
+  </dialog>
 </body>
 </html>

@@ -77,7 +77,7 @@ def load_flag(challenge_id):
 
 @app.route("/")
 def index():
-    return '<p>CTF infrastructure online.</p><a href="/challenges">Browse challenges</a>'
+    return render_template("home.html", competition_title=COMPETITION_TITLE, challenge_count=len(CHALLENGES))
 
 
 @app.route("/challenges", methods=["GET", "POST"])
@@ -102,6 +102,7 @@ def challenges():
         challenges=challenge_list,
         result=result,
         result_challenge=result_challenge,
+        modal_open=result is not None,
     )
 
 

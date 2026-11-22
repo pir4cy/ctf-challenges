@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CTF.PIR4CY.COM | Capture The Flag Challenges</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='challenges.css') }}">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="/">CTF<span>.</span>PIR4CY</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="active" href="/">Home</a>
+        <a href="{{ url_for('challenges') }}">Challenges</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="home-hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> A PLAYGROUND FOR THE CURIOUS</p>
+          <h1>Find the signal.<br><span>Follow the clue.</span></h1>
+          <p class="hero-description">
+            A collection of CTF challenges built for people who like to look closer.
+            Explore files, uncover hidden details, and claim the flag.
+          </p>
+          <a class="primary-link" href="{{ url_for('challenges') }}">
+            Browse challenges <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="hero-graphic" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit-core">CTF</div>
+          <span class="orbit-tag tag-one">0101</span>
+          <span class="orbit-tag tag-two">FLAG FOUND?</span>
+          <span class="orbit-tag tag-three">LOOK CLOSER</span>
+        </div>
+      </section>
+
+      <section class="featured-section" aria-labelledby="featured-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ON THE BOARD</p>
+            <h2 id="featured-title">Featured competition</h2>
+          </div>
+          <span class="challenge-count">{{ challenge_count }} challenges</span>
+        </div>
+        <a class="featured-card" href="{{ url_for('challenges') }}">
+          <span class="featured-icon" aria-hidden="true">I</span>
+          <span class="featured-copy">
+            <span class="featured-kicker">COMPETITION</span>
+            <span class="featured-title">{{ competition_title }}</span>
+            <span class="featured-description">Four clues across steganography, forensics, and archive layers.</span>
+          </span>
+          <span class="featured-action">View board <span aria-hidden="true">↗</span></span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>CTF.PIR4CY.COM</span>
+      <span>Curiosity is a useful exploit.</span>
+    </footer>
+  </div>
+</body>
+</html>
