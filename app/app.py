@@ -7,7 +7,7 @@ from flask import Flask, abort, render_template, request, send_from_directory
 app = Flask(__name__)
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-FLAG_DIR = Path("/opt/ctf/flags")
+INIT_FLAG_DIR = Path("/opt/ctf/challenges/Init-2026/flags")
 
 fake_flag = "llm-in-ctf-not-so-fun"
 
@@ -118,7 +118,7 @@ def download_challenge(challenge_id):
 
 @app.route("/init-misc1")
 def giveaway():
-	flag_file = FLAG_DIR / "giveaway.txt"
+	flag_file = INIT_FLAG_DIR / "giveaway.txt"
 
 	if not flag_file.exists():
 		abort(404)
@@ -153,7 +153,7 @@ def health():
 
 @app.route("/exif-flag")
 def exif_flag():
-	flag_file = FLAG_DIR / "exif-flag.txt"
+	flag_file = INIT_FLAG_DIR / "exif-flag.txt"
 	if not flag_file.exists():
 		abort(404)
 	flag = flag_file.read_text().strip()

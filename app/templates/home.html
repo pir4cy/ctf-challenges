@@ -3,65 +3,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CTF.PIR4CY.COM | Capture The Flag Challenges</title>
+  <title>CTF Challenges by pir4cy</title>
+  <meta name="description" content="Original CTF challenges by pir4cy. Practice cybersecurity by exploring files, following clues, and learning through hands-on challenges.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='challenges.css') }}">
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header">
-      <a class="brand" href="/">CTF<span>.</span>PIR4CY</a>
+      <a class="brand" href="https://pir4cy.com">pir4cy<span>.</span>com</a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a class="active" href="/">Home</a>
-        <a href="{{ url_for('challenges') }}">Challenges</a>
+        <a class="active" href="{{ url_for('index') }}">CTF Archive</a>
+        <a href="https://pir4cy.com">Main site <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
 
     <main>
       <section class="home-hero">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="live-dot"></span> A PLAYGROUND FOR THE CURIOUS</p>
-          <h1>Find the signal.<br><span>Follow the clue.</span></h1>
+          <p class="eyebrow"><span class="live-dot"></span> CYBERSECURITY • HANDS-ON</p>
+          <h1>Learn by<br><span>looking closer.</span></h1>
           <p class="hero-description">
-            A collection of CTF challenges built for people who like to look closer.
-            Explore files, uncover hidden details, and claim the flag.
+            Original CTF challenges by pir4cy. Explore files, follow the clues,
+            and learn something along the way.
           </p>
           <a class="primary-link" href="{{ url_for('challenges') }}">
-            Browse challenges <span aria-hidden="true">↗</span>
+            Explore challenges <span aria-hidden="true">↗</span>
           </a>
         </div>
         <div class="hero-graphic" aria-hidden="true">
           <div class="orbit orbit-one"></div>
           <div class="orbit orbit-two"></div>
-          <div class="orbit-core">CTF</div>
-          <span class="orbit-tag tag-one">0101</span>
-          <span class="orbit-tag tag-two">FLAG FOUND?</span>
-          <span class="orbit-tag tag-three">LOOK CLOSER</span>
+          <div class="orbit-core">0x01</div>
+          <span class="orbit-tag tag-one">OBSERVE</span>
+          <span class="orbit-tag tag-two">ANALYZE</span>
+          <span class="orbit-tag tag-three">REPEAT</span>
         </div>
       </section>
 
       <section class="featured-section" aria-labelledby="featured-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">ON THE BOARD</p>
-            <h2 id="featured-title">Featured competition</h2>
+            <p class="eyebrow">CURRENT CHALLENGE SET</p>
+            <h2 id="featured-title">Pick a place to start.</h2>
           </div>
           <span class="challenge-count">{{ challenge_count }} challenges</span>
         </div>
-        <a class="featured-card" href="{{ url_for('challenges') }}">
+        <article class="featured-card">
           <span class="featured-icon" aria-hidden="true">I</span>
           <span class="featured-copy">
-            <span class="featured-kicker">COMPETITION</span>
+            <span class="featured-kicker">COMPETITION / 01</span>
             <span class="featured-title">{{ competition_title }}</span>
-            <span class="featured-description">Four clues across steganography, forensics, and archive layers.</span>
+            <span class="featured-description">
+              Four original challenges in steganography, forensics, and archive layers.
+              Part of <a class="event-link" href="https://ctf.hackersinindia.com/" target="_blank" rel="noopener noreferrer">InIt CTF</a>.
+            </span>
           </span>
-          <span class="featured-action">View board <span aria-hidden="true">↗</span></span>
-        </a>
+          <a class="featured-action" href="{{ url_for('challenges') }}">Open challenge set <span aria-hidden="true">↗</span></a>
+        </article>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>CTF.PIR4CY.COM</span>
-      <span>Curiosity is a useful exploit.</span>
+      <span>Made by <a href="https://pir4cy.com">pir4cy</a></span>
+      <span>Cybersecurity researcher. Always learning.</span>
     </footer>
   </div>
 </body>

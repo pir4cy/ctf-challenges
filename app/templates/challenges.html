@@ -3,34 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Challenges | CTF.PIR4CY.COM</title>
+  <title>Challenge Archive | pir4cy</title>
+  <meta name="description" content="Browse original CTF challenges by pir4cy. Open a competition to download challenge files and submit flags.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='challenges.css') }}">
   <script src="{{ url_for('static', filename='challenges.js') }}" defer></script>
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header">
-      <a class="brand" href="/">CTF<span>.</span>PIR4CY</a>
+      <a class="brand" href="https://pir4cy.com">pir4cy<span>.</span>com</a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a class="active" href="{{ url_for('challenges') }}">Challenges</a>
+        <a class="active" href="{{ url_for('index') }}">CTF Archive</a>
+        <a href="https://pir4cy.com">Main site <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
 
     <main class="challenges-page">
-      <p class="eyebrow">CHALLENGE ARCHIVE</p>
-      <h1>Find your next clue.</h1>
-      <p class="page-intro">Pick a competition to browse its challenges, download files, and submit flags.</p>
+      <p class="eyebrow">PIR4CY / CTF ARCHIVE</p>
+      <h1>Built to be explored.</h1>
+      <p class="page-intro">
+        Original challenges from CTFs. Download the files, read the brief, and submit your flags.
+      </p>
 
       <button class="competition-launcher" type="button" data-dialog-open="competition-dialog">
         <span class="launcher-mark" aria-hidden="true">I</span>
         <span class="launcher-copy">
-          <span class="launcher-label">FEATURED COMPETITION</span>
+          <span class="launcher-label">COMPETITION / 01</span>
           <span class="launcher-title">{{ competition_title }}</span>
-          <span class="launcher-description">Open the challenge board and start exploring.</span>
+          <span class="launcher-description">This set was made for
+        <a class="event-link" href="https://ctf.hackersinindia.com/" target="_blank" rel="noopener noreferrer">InIt CTF 2026</a>.
+        Open the competition to read the briefs, inspect the files, and test what you’ve learned.</span>
         </span>
         <span class="launcher-meta">{{ challenges|length }} challenges</span>
-        <span class="launcher-arrow" aria-hidden="true">↗</span>
+        <span class="launcher-arrow" aria-hidden="true">+</span>
       </button>
     </main>
   </div>
@@ -44,13 +52,13 @@
     <section class="competition-modal">
       <header class="modal-header">
         <div>
-          <p class="eyebrow">CHALLENGE BOARD</p>
+          <p class="eyebrow">COMPETITION / 01</p>
           <h2 id="competition-title">{{ competition_title }}</h2>
-          <p class="intro">Choose a challenge, inspect the provided brief, and submit its flag.</p>
+          <p class="intro">Read the brief, download the file, and see what you can uncover.</p>
         </div>
         <div class="modal-header-actions">
           <span class="challenge-count">{{ challenges|length }} challenges</span>
-          <button class="modal-close" type="button" data-dialog-close aria-label="Close challenge board">×</button>
+          <button class="modal-close" type="button" data-dialog-close aria-label="Close challenge set">×</button>
         </div>
       </header>
 
@@ -68,7 +76,7 @@
           </a>
           <form class="flag-form" method="post" action="{{ url_for('challenges') }}">
             <input type="hidden" name="challenge_id" value="{{ challenge.id }}">
-            <label for="flag-{{ challenge.id }}">Submit flag</label>
+            <label for="flag-{{ challenge.id }}">FLAG SUBMISSION</label>
             <div class="form-controls">
               <input
                 id="flag-{{ challenge.id }}"
@@ -78,7 +86,7 @@
                 autocomplete="off"
                 required
               >
-              <button type="submit">Submit</button>
+              <button type="submit">Check flag</button>
             </div>
             {% if result_challenge == challenge.id %}
               <p class="result {{ result }}" role="status">
