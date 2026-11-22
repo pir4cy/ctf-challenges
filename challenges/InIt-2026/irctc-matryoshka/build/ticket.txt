@@ -1,0 +1,42 @@
+                    INDIAN RAILWAYS
+                  GOLDEN DIAMOND TOUR
+============================================================
+
+                    E - TICKET
+
+Passenger        : pir4cy
+
+------------------------------------------------------------
+ITINERARY
+------------------------------------------------------------
+
+        NEW DELHI
+             |
+             v
+          MUMBAI
+             |
+             v
+          CHENNAI
+             |
+             v
+          KOLKATA
+
+------------------------------------------------------------
+
+Train            : 12302
+Journey           : Golden Diamond Tour
+Status            : CONFIRMED
+
+Coach             : B2
+Seat              : 37
+
+------------------------------------------------------------
+
+Congratulations! You won the giveaway!
+
+Your flag is:
+
+InIt{j0urney_4cr0ss_1ndia}
+------------------------------------------------------------
+                    HAPPY JOURNEY
+============================================================
